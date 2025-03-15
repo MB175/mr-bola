@@ -8,6 +8,15 @@ Mr. Bola is an educational project written in Go, designed as a workshop templat
 ## Challenge
 The API correctly implements authentication but **fails to properly enforce authorization** on note retrieval. The objective is to identify and fix this security flaw, ensuring that users can only access their own notes.
 
+
+## Running the Integration Test
+To verify if the challenge has been solved, an integration test is included. This test starts the API, performs authentication, creates notes, and attempts unauthorized access.
+
+A Makefile command has been provided to quickly run the integration test:
+```shell
+make audit
+```
+
 ## Educational Purpose
 This project helps developers understand:
 - **How authentication works with JWT tokens**
@@ -89,6 +98,14 @@ Use **IntelliJ HTTP Client**, **Postman**, or **cURL**:
 ```sh
 curl -X POST http://localhost:8080/auth -d '{"username": "userA"}' -H "Content-Type: application/json"
 ```
+
+### Solution
+<details>
+  <summary>Click to reveal</summary>
+
+https://gist.github.com/MB175/cb21487017b08e561fc8837eda759410
+</details>
+
 
 ## License
 This project is open-source and available for educational purposes.
