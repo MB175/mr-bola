@@ -90,12 +90,12 @@ func createNote(serverURL, token, content string) (string, error) {
 	}
 
 	// Ensure "id" exists in the response
-	id, ok := result["id"].(float64) // SQLite often returns numbers as float64
+	id, ok := result["id"].(string)
 	if !ok {
 		return "", fmt.Errorf("error extracting note ID, response: %v", result)
 	}
 
-	return fmt.Sprintf("%.0f", id), nil // Convert float64 to string
+	return id, nil
 }
 
 func getNote(serverURL, token, noteID string) (*http.Response, error) {
