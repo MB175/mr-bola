@@ -1,0 +1,43 @@
+POST http://localhost:8071/auth
+Content-Type: application/json
+
+{
+  "username": "userA"
+}
+
+###
+
+POST http://localhost:8071/auth
+Content-Type: application/json
+
+{
+  "username": "userB"
+}
+
+###
+
+POST http://localhost:8071/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQSIsImV4cCI6MTc0MTk3NzM1OX0.PrNRjDD2v4xy1hO02YR5ywe3Oy3MmTkSS5drHCFS5Cw
+
+{
+  "content": "This is User A's secret note"
+}
+
+###
+
+GET http://localhost:8071/notes/f045430e-f0d8-4047-aa40-a74d45be7b0c
+
+###
+
+GET http://localhost:8071/notes/f045430e-f0d8-4047-aa40-a74d45be7b0c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyQSIsImV4cCI6MTc0MjA1NDA4N30.XG9tehiJPkBibgZ-4XH1SIehuTkTY0rpGBKBXPVGI-s
+
+###
+
+GET http://localhost:8071/notes/YOUR_NOTE_ID
+Authorization: Bearer YOUR_USER_B_TOKEN
+
+###
+
+GET http://localhost:8071/notes/YOUR_NOTE_ID
